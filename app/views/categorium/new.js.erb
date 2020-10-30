@@ -1,0 +1,8 @@
+// Agrega titulo al dialogo
+$('#modal-categorias-title').html("Nueva categoria");
+
+// Randeriza el Form
+$('.modal-body-categorias').html('<%= j render("form") %>');
+
+// Muestra el dialogo
+$('#modalCategorias').modal("show");
