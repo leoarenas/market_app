@@ -1,0 +1,8 @@
+// Agrega titulo al dialogo
+$('#modal-clientes-title').html("Nuevo cliente");
+
+// Randeriza el Form
+$('.modal-body-clientes').html('<%= j render("form") %>');
+
+// Muestra el dialogo
+$('#modalClientes').modal("show");

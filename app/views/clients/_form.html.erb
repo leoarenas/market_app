@@ -1,0 +1,46 @@
+<%= form_for @cliente, remote: true do |f| %>
+  <div class="form-group">
+    <h4 class="control-label">Datos del cliente:</h4>
+  </div>
+
+  <div class="item form-group<%=@cliente.errors[:nombre].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :nombre, "Nombre del cliente: " %>
+    <div class="input-group">
+      <%= f.text_field :nombre, {:class=> "form-control", :placeholder=>"Introduzca el nombre del cliente"} %>
+      <% if @cliente.errors[:nombre].any? %>
+        <p class="bg-danger"><%= @cliente.errors[:nombre].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=@cliente.errors[:telefono].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :telefono, "Telefono: " %>
+    <div class="input-group">
+      <%= f.text_field :telefono, {:class=> "form-control", :placeholder=>"Introduzca el telefono"} %>
+      <% if @cliente.errors[:telefono].any? %>
+        <p class="bg-danger"><%= @cliente.errors[:telefono].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=@cliente.errors[:email].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :email, "Email: " %>
+    <div class="input-group">
+      <%= f.text_field :email, {:class=> "form-control", :placeholder=>"Introduzca el email"} %>
+      <% if @cliente.errors[:email].any? %>
+        <p class="bg-danger"><%= @cliente.errors[:email].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=@cliente.errors[:direccion].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :direccion, "Direccion: " %>
+    <div class="input-group">
+      <%= f.text_field :direccion, {:class=> "form-control", :placeholder=>"Introduzca la direccion"} %>
+      <% if @cliente.errors[:direccion].any? %>
+        <p class="bg-danger"><%= @cliente.errors[:direccion].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <% end %>
