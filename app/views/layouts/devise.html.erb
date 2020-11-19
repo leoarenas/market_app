@@ -35,7 +35,11 @@
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a
+                      <%= link_to new_user_registration_path, method: :create, html_options: {class: "small"} do %>
+                        Crear una cuenta
+                      <%end%>
+                    </a>
                   </div>
                 </div>
               </div>
