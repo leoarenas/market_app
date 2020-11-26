@@ -1,0 +1,8 @@
+// Agrega titulo al dialogo
+$('#modal-proveedores-title').html("Editar proveedor");
+
+// Randeriza el Form
+$('.modal-body-proveedores').html('<%= j render("form") %>');
+
+// Muestra el dialogo
+$('#modalProveedores').modal("show");

@@ -1,0 +1,37 @@
+<%= form_for @supplier, remote: true do |f| %>
+  <div class="form-group">
+    <h4 class="control-label">Datos del proveedor:</h4>
+  </div>
+
+  <div class="item form-group<%=@supplier.errors[:nombre].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :nombre, "Nombre del proveedor: " %>
+    <div class="input-group">
+      <%= f.text_field :nombre, {:class=> "form-control", :placeholder=>"Introduzca el nombre del proveedor"} %>
+      <% if @supplier.errors[:nombre].any? %>
+        <p class="bg-danger"><%= @supplier.errors[:nombre].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=@supplier.errors[:direccion].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :direccion, "Direccion: " %>
+    <div class="input-group">
+      <%= f.text_field :direccion, {:class=> "form-control", :placeholder=>"Introduzca la direccion"} %>
+      <% if @supplier.errors[:direccion].any? %>
+        <p class="bg-danger"><%= @supplier.errors[:direccion].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=@supplier.errors[:telefono].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :telefono, "Telefono: " %>
+    <div class="input-group">
+      <%= f.text_field :telefono, {:class=> "form-control", :placeholder=>"Introduzca el telefono"} %>
+      <% if @supplier.errors[:telefono].any? %>
+        <p class="bg-danger"><%= @supplier.errors[:telefono].to_s[/\w(["]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <% end %>

@@ -1,0 +1,39 @@
+<h1 class="h3 mb-2 text-gray-800">Proveedores</h1>
+
+<div>
+  <%= link_to new_supplier_path, {remote: true, class: "btn btn-info", id:"anadir-proveedor-btn"} do %>
+    <span class="fas fa-plus-square" ></span>
+  <% end %>
+</div>
+
+<div class="card shadow nb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="tablaProveedores" class="table table-border" width="100%">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @suppliers.each do |sup| %>
+            <tr id="proveedor_<%= sup.id %>" >
+              <td><%= sup.nombre %></td>
+              <td><%= sup.direccion %></td>
+              <td><%= sup.telefono %></td>
+              <td>
+                <%= link_to "editar", edit_supplier_path(sup), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                <%= link_to 'Borrar', sup, remote: true, method: :delete, data: { confirm: "Borrar proveedor: #{sup.nombre}?"}, class: "btn btn-danger btn-xs" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= render 'modal_proveedores' %>
